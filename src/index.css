@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #0a7d3f;        /* Nigeria/health green */
+  --color-brand-dark: #086331;
+  --color-brand-50: #e9f6ee;
+  --color-brand-100: #cdebd8;
+  --color-accent: #c9a227;       /* gold accent */
+  --color-ink: #0f172a;
+  --color-heading: #14251c;
+  --color-body: #47554d;
+  --color-muted: #7c8a82;
+  --color-surface: #f4f7f5;
+  --color-line: #dde5e0;
+  --color-danger: #d64545;
+  --color-warn: #e3a008;
+  --color-ok: #0a7d3f;
+
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-body);
+    background: var(--color-surface);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 { color: var(--color-heading); }
+}
