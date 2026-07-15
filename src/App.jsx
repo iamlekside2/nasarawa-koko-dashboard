@@ -3,6 +3,7 @@ import { auth } from './lib/api'
 import Layout from './components/Layout'
 import Login from './pages/Login'
 import Facilities from './pages/Facilities'
+import FacilityDetail from './pages/FacilityDetail'
 import Staff from './pages/Staff'
 import Pharmacy from './pages/Pharmacy'
 import Diseases from './pages/Diseases'
@@ -26,6 +27,7 @@ export default function App() {
         }
       >
         <Route index element={<Facilities />} />
+        <Route path="facility/:id" element={<FacilityDetail />} />
         <Route path="staff" element={<Staff />} />
         <Route path="pharmacy" element={<Pharmacy />} />
         <Route path="diseases" element={<Diseases />} />

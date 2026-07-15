@@ -104,7 +104,7 @@ export function EmptyState({ title = 'No data yet', message }) {
 }
 
 /* ---------- table ---------- */
-export function Table({ columns, rows, empty = 'Nothing to show.' }) {
+export function Table({ columns, rows, empty = 'Nothing to show.', onRowClick }) {
   if (!rows?.length) {
     return <div className="px-5 py-10 text-center text-sm text-[var(--color-muted)]">{empty}</div>
   }
@@ -122,7 +122,11 @@ export function Table({ columns, rows, empty = 'Nothing to show.' }) {
         </thead>
         <tbody>
           {rows.map((r, i) => (
-            <tr key={r.id ?? i} className="border-b border-[var(--color-line)] last:border-0 hover:bg-[var(--color-surface)]">
+            <tr
+              key={r.id ?? i}
+              onClick={onRowClick ? () => onRowClick(r) : undefined}
+              className={`border-b border-[var(--color-line)] last:border-0 hover:bg-[var(--color-surface)] ${onRowClick ? 'cursor-pointer' : ''}`}
+            >
               {columns.map((c) => (
                 <td key={c.key} className={`px-5 py-3 ${c.align === 'right' ? 'text-right tabular-nums' : ''}`}>
                   {c.render ? c.render(r) : r[c.key]}
