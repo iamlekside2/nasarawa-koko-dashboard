@@ -2,11 +2,15 @@ import { NavLink, Outlet, useNavigate } from 'react-router-dom'
 import { auth } from '../lib/api'
 
 const NAV = [
-  { to: '/', label: 'Facilities', end: true, icon: 'M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6' },
+  { to: '/', label: 'Overview', end: true, icon: 'M3 13h8V3H3zM13 21h8V3h-8zM3 21h8v-6H3z' },
+  { to: '/facilities', label: 'Facilities', icon: 'M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6' },
   { to: '/staff', label: 'Staff', icon: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75' },
   { to: '/pharmacy', label: 'Store & Medication', icon: 'M4 7h16M4 7l1 12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2l1-12M9 7V5a3 3 0 0 1 6 0v2' },
+  { to: '/surveillance', label: 'Disease Surveillance', icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 8v4M12 16h.01' },
+  { to: '/mnch', label: 'Maternal & Child', icon: 'M12 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM6 22v-6a6 6 0 0 1 12 0v6' },
   { to: '/diseases', label: 'Diseases Treated', icon: 'M12 21C7 17 3 13 3 8.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 9 2.5C21 13 17 17 12 21z' },
   { to: '/disease-map', label: 'Disease Mapping', icon: 'M9 3 3 6v15l6-3 6 3 6-3V3l-6 3-6-3zM9 3v15M15 6v15' },
+  { to: '/reporting', label: 'Reporting & DHIS2', icon: 'M9 17v-6M12 17V7M15 17v-3M4 4h16v16H4z' },
 ]
 
 export default function Layout() {
