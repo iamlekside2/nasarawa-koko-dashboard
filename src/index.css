@@ -29,3 +29,23 @@
   }
   h1, h2, h3, h4 { color: var(--color-heading); }
 }
+
+/* Print / PDF export — clean report of the current view. */
+.print-header { display: none; }
+@media print {
+  aside, header, footer, nav, button { display: none !important; }
+  main { max-width: none !important; padding: 0 !important; }
+  body { background: #fff !important; }
+  .print-header {
+    display: block;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-brand);
+    font-size: 13px;
+    color: var(--color-heading);
+  }
+  .print-date { color: var(--color-muted); }
+  /* Avoid clipping cards across page breaks. */
+  .rounded-xl, table { break-inside: avoid; }
+  a { color: inherit !important; text-decoration: none !important; }
+}

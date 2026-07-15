@@ -8,6 +8,7 @@ const NAV = [
   { to: '/pharmacy', label: 'Store & Medication', icon: 'M4 7h16M4 7l1 12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2l1-12M9 7V5a3 3 0 0 1 6 0v2' },
   { to: '/surveillance', label: 'Disease Surveillance', icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 8v4M12 16h.01' },
   { to: '/mnch', label: 'Maternal & Child', icon: 'M12 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM6 22v-6a6 6 0 0 1 12 0v6' },
+  { to: '/referrals', label: 'Referrals', icon: 'M7 7h10v10M7 17 17 7' },
   { to: '/diseases', label: 'Diseases Treated', icon: 'M12 21C7 17 3 13 3 8.5A4.5 4.5 0 0 1 12 6a4.5 4.5 0 0 1 9 2.5C21 13 17 17 12 21z' },
   { to: '/disease-map', label: 'Disease Mapping', icon: 'M9 3 3 6v15l6-3 6 3 6-3V3l-6 3-6-3zM9 3v15M15 6v15' },
   { to: '/reporting', label: 'Reporting & DHIS2', icon: 'M9 17v-6M12 17V7M15 17v-3M4 4h16v16H4z' },
@@ -55,7 +56,16 @@ export default function Layout() {
           ))}
         </nav>
 
-        <div className="border-t border-[var(--color-line)] px-3 py-4">
+        <div className="space-y-1 border-t border-[var(--color-line)] px-3 py-4">
+          <button
+            onClick={() => window.print()}
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-[var(--color-body)] hover:bg-[var(--color-surface)]"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z" />
+            </svg>
+            Print / PDF
+          </button>
           <button
             onClick={logout}
             className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-[var(--color-body)] hover:bg-[var(--color-surface)]"
@@ -98,6 +108,10 @@ export default function Layout() {
         </nav>
 
         <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+          <div className="print-header">
+            <strong>Nasarawa State Government</strong> · Koko PHC Monitoring Dashboard
+            <span className="print-date"> · Printed {new Date().toLocaleDateString()}</span>
+          </div>
           <Outlet />
         </main>
 
