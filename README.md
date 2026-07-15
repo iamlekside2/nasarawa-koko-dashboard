@@ -35,7 +35,8 @@ npm run dev            # http://localhost:3013
 Requires the Calm Global backend running locally on `http://localhost:4000/api`
 (`VITE_API_BASE_URL` in `.env`).
 
-Login: `nasarawa.gov@calmglobal.com` / `nasarawa123`
+Login: a shared read-only Nasarawa State account (credentials provided separately
+by the platform administrator — not committed to this repo).
 
 ## Deploy (Vercel)
 
