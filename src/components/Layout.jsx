@@ -6,6 +6,7 @@ const NAV = [
   { to: '/facilities', label: 'Facilities', icon: 'M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6' },
   { to: '/staff', label: 'Staff', icon: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75' },
   { to: '/pharmacy', label: 'Store & Medication', icon: 'M4 7h16M4 7l1 12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2l1-12M9 7V5a3 3 0 0 1 6 0v2' },
+  { to: '/lab', label: 'Laboratory', icon: 'M9 3v6l-5 9a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-5-9V3M8 3h8M8 14h8' },
   { to: '/surveillance', label: 'Disease Surveillance', icon: 'M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 8v4M12 16h.01' },
   { to: '/mnch', label: 'Maternal & Child', icon: 'M12 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM6 22v-6a6 6 0 0 1 12 0v6' },
   { to: '/referrals', label: 'Referrals', icon: 'M7 7h10v10M7 17 17 7' },

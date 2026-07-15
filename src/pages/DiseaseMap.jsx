@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AreaChart, Area, XAxis, YAxis, ResponsiveContainer, Tooltip, CartesianGrid } from 'recharts'
+import { AreaChart, Area, BarChart, Bar, Cell, XAxis, YAxis, ResponsiveContainer, Tooltip, CartesianGrid } from 'recharts'
 import { useApi, PageHead, StatCard, Card, Table, Spinner, ErrorState, EmptyState, num } from '../components/ui'
 
 const RANGES = [{ k: 'week', l: 'Past week' }, { k: 'month', l: 'Past month' }, { k: 'year', l: 'Past year' }]
@@ -83,6 +83,30 @@ export default function DiseaseMap() {
                       <Tooltip />
                       <Area type="monotone" dataKey="count" stroke="#0a7d3f" strokeWidth={2} fill="url(#g)" isAnimationActive={false} />
                     </AreaChart>
+                  </ResponsiveContainer>
+                </div>
+              </Card>
+
+              <Card className="mb-6 p-5">
+                <h3 className="mb-3 text-sm font-semibold">Case intensity by LGA</h3>
+                <div style={{ height: Math.max(160, (data.byLga?.length || 1) * 28 + 20) }}>
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart data={data.byLga} layout="vertical" margin={{ top: 4, right: 24, left: 8, bottom: 4 }}>
+                      <CartesianGrid strokeDasharray="3 3" horizontal={false} stroke="#e5ece8" />
+                      <XAxis type="number" allowDecimals={false} tick={{ fontSize: 12 }} />
+                      <YAxis type="category" dataKey="lga" width={120} tick={{ fontSize: 12 }} />
+                      <Tooltip />
+                      <Bar dataKey="count" radius={[0, 4, 4, 0]} isAnimationActive={false}>
+                        {(() => {
+                          const max = Math.max(1, ...(data.byLga || []).map((g) => g.count))
+                          return (data.byLga || []).map((g, i) => {
+                            const t = g.count / max // 0..1 intensity
+                            const light = 88 - Math.round(t * 58) // lightness 88%→30%
+                            return <Cell key={i} fill={`hsl(147 82% ${light}%)`} />
+                          })
+                        })()}
+                      </Bar>
+                    </BarChart>
                   </ResponsiveContainer>
                 </div>
               </Card>

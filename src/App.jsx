@@ -12,6 +12,7 @@ import DiseaseMap from './pages/DiseaseMap'
 import Surveillance from './pages/Surveillance'
 import Mnch from './pages/Mnch'
 import Referrals from './pages/Referrals'
+import Lab from './pages/Lab'
 import Reporting from './pages/Reporting'
 
 function RequireAuth({ children }) {
@@ -39,6 +40,7 @@ export default function App() {
         <Route path="surveillance" element={<Surveillance />} />
         <Route path="mnch" element={<Mnch />} />
         <Route path="referrals" element={<Referrals />} />
+        <Route path="lab" element={<Lab />} />
         <Route path="diseases" element={<Diseases />} />
         <Route path="disease-map" element={<DiseaseMap />} />
         <Route path="reporting" element={<Reporting />} />
